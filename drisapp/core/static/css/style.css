@@ -1,0 +1,13 @@
+.footer-style {
+    margin-top: 15px;   
+    border-top: 1px solid #ccc;
+}
+
+.footer-style p {
+    font-family: "Lucida Sans Unicode", sans-serif;
+    text-align: left;
+}
+
+.space {
+    margin-top: 80px;   
+}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Contact Us -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Fale Conosco</h1>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ipsum massa. 
+            Aliquam convallis pellentesque ullamcorper.Curabitur porta lectus id tortor fringilla ultrices. 
+            Aenean purus ipsum, placerat in odio eget, mollis interdum metus. Aenean sit amet neque felis. 
+            </p>
+        </div>
+        <form action="." class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nome</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Escreva seu nome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Escreva seu email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Mensagem</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="5" placeholder="O que você quer nos dizer?"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Contact Us -->
+{% endblock content %}
