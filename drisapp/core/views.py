@@ -12,3 +12,6 @@ def contact(request):
 
 def calculate(request):
     return render(request, 'calculate.html', {'form': CalculateForm()})
+
+def converte_norma(norma):
+    return [float(x) for x in a.split(', ')]
