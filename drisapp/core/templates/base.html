@@ -18,12 +18,10 @@
                     <a class="navbar-brand" href="/">Dris App</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Início</a></li>
-                        <li><a href="/calculate/">Calcular</a></li>
-                        <li><a href="/about/">Sobre</a></li>
-                        <li><a href="/contact/">Contato</a></li>
-                    </ul>
+                    <div id="topo">
+                        {% block topo %}
+                        {% endblock topo %}
+                    </div>
                 </div>
             </div>
         </header>

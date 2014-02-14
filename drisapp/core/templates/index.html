@@ -1,18 +1,28 @@
 {% extends 'base.html' %}
+{% block topo %}
+<!-- Menu -->
+<ul class="nav navbar-nav">
+    <li class="active"><a href="/">Início</a></li>
+    <li><a href="/calculate/">Calcular</a></li>
+    <li><a href="/about/">Sobre</a></li>
+    <li><a href="/contact/">Contato</a></li>
+</ul>
+<!-- End Menu -->
+{% endblock topo %}
 {% block content %}
-    <!-- Welcome -->
-    <div class="container">
-        <div class="jumbotron">
-            <h1>Seja Bem-Vindo!</h1>
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ipsum massa. 
-            Aliquam convallis pellentesque ullamcorper.Curabitur porta lectus id tortor fringilla ultrices. 
-            Aenean purus ipsum, placerat in odio eget, mollis interdum metus. Aenean sit amet neque felis. 
-            </p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="#">Calcular</a>
-            </p>
-        </div>
+<!-- Welcome -->
+<div class="container">
+    <div class="jumbotron">
+        <h1>Seja Bem-Vindo!</h1>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu ipsum massa. 
+        Aliquam convallis pellentesque ullamcorper.Curabitur porta lectus id tortor fringilla ultrices. 
+        Aenean purus ipsum, placerat in odio eget, mollis interdum metus. Aenean sit amet neque felis. 
+        </p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/calculate/">Calcular</a>
+        </p>
     </div>
-    <!-- End Welcome -->
+</div>
+<!-- End Welcome -->
 {% endblock content %}

@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% block topo %}
+<ul class="nav navbar-nav">
+    <li><a href="/">Início</a></li>
+    <li class="active"><a href="/calculate/">Calcular</a></li>
+    <li><a href="/about/">Sobre</a></li>
+    <li><a href="/contact/">Contato</a></li>
+</ul>
+{% endblock topo %}
 {% block content %}
     <!-- About -->
     <div class="container">
