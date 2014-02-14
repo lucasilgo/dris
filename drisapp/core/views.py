@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from drisapp.core.forms import CalculateForm
 
 def index(request):
     return render(request, 'index.html')
@@ -10,4 +11,4 @@ def contact(request):
     return render(request, 'contact.html')
 
 def calculate(request):
-    return render(request, 'calculate.html')
+    return render(request, 'calculate.html', {'form': CalculateForm()})

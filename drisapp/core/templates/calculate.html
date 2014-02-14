@@ -18,40 +18,140 @@
             Aenean purus ipsum, placerat in odio eget, mollis interdum metus. Aenean sit amet neque felis. 
             </p>
         </div>
-        <form action="." class="form-horizontal">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Proprietário</label>
-                <div class="col-sm-10">
-                    <input type="text" name="proprietario" class="form-control" placeholder="Quem é o dono da propriedade?">
+        <form action="." class="form-horizontal" method="POST">
+            {% csrf_token %}
+            <div class="col-sm-12">
+                <div class="col-sm-4 boxtorn">
+                    <h3 align="center"><strong>Nutrientes</strong></h3>
+                    <div class="form-group">
+                        <label for="{{form.n.id_for_label}}" class="col-sm-2 control-label">{{form.n.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.n}}
+                            {{form.n.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.p.id_for_label}}" class="col-sm-2 control-label">{{form.p.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.p}}
+                            {{form.p.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.k.id_for_label}}" class="col-sm-2 control-label">{{form.k.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.k}}
+                            {{form.k.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.ca.id_for_label}}" class="col-sm-2 control-label">{{form.ca.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.ca}}
+                            {{form.ca.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.mg.id_for_label}}" class="col-sm-2 control-label">{{form.mg.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.mg}}
+                            {{form.mg.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.s.id_for_label}}" class="col-sm-2 control-label">{{form.s.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.s}}
+                            {{form.s.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.b.id_for_label}}" class="col-sm-2 control-label">{{form.b.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.b}}
+                            {{form.b.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.cu.id_for_label}}" class="col-sm-2 control-label">{{form.cu.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.cu}}
+                            {{form.cu.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.fe.id_for_label}}" class="col-sm-2 control-label">{{form.fe.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.fe}}
+                            {{form.fe.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.mn.id_for_label}}" class="col-sm-2 control-label">{{form.mn.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.mn}}
+                            {{form.mn.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.zn.id_for_label}}" class="col-sm-2 control-label">{{form.zn.label}}</label>
+                        <div class="col-sm-10">
+                            {{form.zn}}
+                            {{form.zn.errors}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Propriedade</label>
-                <div class="col-sm-10">
-                    <input type="text" name="propriedade" class="form-control" placeholder="Qual foi a propriedade analisada?">
+                <div class="col-sm-1"></div>
+                <!-- Dados Gerais -->
+                <div class="col-sm-7 boxtorn">
+                    <h3 align="center"><strong>Dados Gerais</strong></h3>
+                    <div class="form-group">
+                        <label for="{{form.proprietario.id_for_label" class="col-sm-3 control-label">{{form.proprietario.label}}</label>
+                        <div class="col-sm-9">
+                            {{form.proprietario}}
+                            {{form.proprietario.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.propriedade.id_for_label" class="col-sm-3 control-label">{{form.propriedade.label}}</label>
+                        <div class="col-sm-9">
+                            {{form.propriedade}}
+                            {{form.propriedade.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.lavoura.id_for_label" class="col-sm-3 control-label">{{form.lavoura.label}}</label>
+                        <div class="col-sm-9">
+                            {{form.lavoura}}
+                            {{form.lavoura.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Cultura</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="cultura">
+                                <option>Feijão Verão Goiás</option>
+                                <option>Feijão Inverno Goiás</option>
+                                <option>Café Inverno Goiás</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.amostra.id_for_label" class="col-sm-3 control-label">{{form.amostra.label}}</label>
+                        <div class="col-sm-9">
+                            {{form.amostra}}
+                            {{form.amostra.errors}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="{{form.data_coleta.id_for_label" class="col-sm-3 control-label">{{form.data_coleta.label}}</label>
+                        <div class="col-sm-9">
+                            {{form.data_coleta}}
+                            {{form.data_coleta.errors}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Lavoura</label>
-                <div class="col-sm-10">
-                    <input type="text" name="lavoura" class="form-control" placeholder="Qual o tipo de lavoura?">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Cultura</label>
-                <div class="col-sm-10">
-                    <select class="form-control" name="cultura">
-                        <option>Feijão Verão Goiás</option>
-                        <option>Feijão Inverno Goiás</option>
-                        <option>Café Inverno Goiás</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Amostra</label>
-                <div class="col-sm-10">
-                    <input class="form-control" placeholder="Qual foi a amostra feita?"></input>
-                </div>
+                <!-- End Dados Gerais -->
             </div>
             <div class="form-group">
                 <div class="col-sm-12">

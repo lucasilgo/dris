@@ -11,3 +11,9 @@
 .space {
     margin-top: 80px;   
 }
+
+.boxtorn {
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
