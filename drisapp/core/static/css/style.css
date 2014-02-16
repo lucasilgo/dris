@@ -17,3 +17,16 @@
     margin-bottom: 15px;
     border-radius: 15px;
 }
+
+.titulo {
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    text-align: center;
+    font-size: medium;
+}
+
+.dados-relatorio {
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}

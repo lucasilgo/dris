@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^about/$', 'drisapp.core.views.about', name='about'),
     url(r'^contact/$', 'drisapp.core.views.contact', name='contact'),
     url(r'^calculate/$', 'drisapp.core.views.calculate', name='calculate'),
+    url(r'^relatorio/$', 'drisapp.core.views.relatorio', name='relatorio'),
     url(r'^admin/', include(admin.site.urls)),
 )

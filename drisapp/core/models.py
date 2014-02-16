@@ -4,7 +4,9 @@ from django.db import models
 
 class Norma(models.Model):
     #Campos de identificação
-    
+    cultura = models.CharField(max_length=255)
+    regiao = models.CharField(max_length=255)
+    epoca = models.CharField(max_length=255)
     #Campos de média
     n_m = models.CharField(max_length=255)
     p_m = models.CharField(max_length=255)
@@ -29,3 +31,6 @@ class Norma(models.Model):
     fe_dp = models.CharField(max_length=255)
     mn_dp = models.CharField(max_length=255)
     zn_dp = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return (self.cultura + ' - ' + self.regiao + ' - ' + self.epoca)

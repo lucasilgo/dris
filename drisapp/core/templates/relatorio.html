@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Config Charset UTF-8 -->
+        <meta charset="utf-8">
+        <!-- CSS Loader -->
+        <link rel="stylesheet" href="{{STATIC_URL}}css/bootstrap.css" media='screen,print'>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" media='screen,print'>
+        <!-- Tittle of Page -->
+        <title>DRIS - Relatório</title>
+        <!-- Loading Ajax to Chart -->
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- Script to Chart Google PNG -->
+        <script type="text/javascript">
+            google.load("visualization", '1', {packages:['corechart']});
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+        
+              var data = google.visualization.arrayToDataTable([
+                ['Elemento', 'Nivel', { role: 'style' }, { role: 'annotation' }],
+                ['N', parseFloat({{chart.0}}), '#3c5f96', parseFloat({{chart.0}})],
+                ['P', parseFloat({{chart.1}}), '#a81800', parseFloat({{chart.1}})],
+                ['K', parseFloat({{chart.2}}), '#daa520', parseFloat({{chart.2}})],
+                ['Ca', parseFloat({{chart.3}}), '#2c3342', parseFloat({{chart.3}})],
+                ['Mg', parseFloat({{chart.4}}), '#6a9c53', parseFloat({{chart.4}})],
+                ['S', parseFloat({{chart.5}}), '#0067e7', parseFloat({{chart.5}})],
+                ['B', parseFloat({{chart.6}}), '#eb7501', parseFloat({{chart.6}})],
+                ['Cu', parseFloat({{chart.7}}), '#78afb4', parseFloat({{chart.7}})],
+                ['Fe', parseFloat({{chart.8}}), '#2ad402', parseFloat({{chart.8}})],
+                ['Mn', parseFloat({{chart.9}}), '#873396', parseFloat({{chart.9}})],
+                ['Zn', parseFloat({{chart.10}}), '#d9db4d', parseFloat({{chart.10}})],
+                ['Media', parseFloat({{chart.11}}), '#000000', parseFloat({{chart.11}})]
+                ]);
+        
+                var options = {
+                    title: "DRIS - Sistema integrado de Diagnóstico e Recomendação",
+                    bar: {groupWidth: '45%'},
+                    legend: 'none',
+                    width: 700,
+                    height: 600
+                };
+        
+                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+                
+                chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
+            }
+        </script>
+        <!-- End Script to Chart Google PNG -->
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <h1>DRIS</h1>
+                </div>
+                <div class="col-xs-6">
+                    <br>
+                    <button onClick="window.print()" style="float: right;" type="button" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-print"></span>Imprimir Relatório
+                    </button>
+                </div>
+            </div>
+            <!-- Dados da Lavoura -->
+            <p class="titulo">Dados da Lavoura</p>
+            <div class="col-xs-12 dados-relatorio">
+                <div class="col-xs-6">
+                    <p><strong>Proprietário:</strong>{{proprietario}}</p>
+                    <p><strong>Propriedade:</strong>{{propriedade}}</p>
+                    <p><strong>Cultura:</strong>{{cultura.cultura}}</p>
+                    <p><strong>Amostra:</strong>{{amostra}}</p>
+                    <p><strong>Data de Coleta:</strong>{{data_coleta}}</p>
+                </div>
+                <div class="col-xs-6">
+                    <p><strong>Lavoura:</strong>{{lavoura}}</p>
+                    <p><strong>Norma:</strong>{{cultura.epoca}}</p>
+                    <p><strong>Região:</strong>{{cultura.regiao}}</p>
+                </div>
+            </div>
+            <!-- Nutrientes -->
+            <p class="titulo">Nutrientes</p>
+            <div class="col-xs-12 dados-relatorio">
+                <div class="col-xs-3">
+                    <p><strong>N:</strong>{{n}}</p>
+                    <p><strong>P:</strong>{{p}}</p>
+                    <p><strong>K:</strong>{{k}}</p>
+                </div>
+                <div class="col-xs-3">
+                    <p><strong>Ca:</strong>{{ca}}</p>
+                    <p><strong>Mg:</strong>{{mg}}</p>
+                    <p><strong>S:</strong>{{s}}</p>
+                </div>
+                <div class="col-xs-3">
+                    <p><strong>B:</strong>{{b}}</p>
+                    <p><strong>Cu:</strong>{{cu}}</p>
+                    <p><strong>Fe:</strong>{{fe}}</p>
+                </div>
+                <div class="col-xs-3">
+                    <p><strong>Mn:</strong>{{mn}}</p>
+                    <p><strong>Zn:</strong>{{zn}}</p>
+                </div>
+            </div>
+            <!-- Exibição do Gráfico -->
+            <div align='center' id='chart_div' />
+            <!-- End Exibição do Gráfico -->
+        </div>
+    </body>
+</html>
