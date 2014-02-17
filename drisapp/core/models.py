@@ -7,6 +7,7 @@ class Norma(models.Model):
     cultura = models.CharField(max_length=255)
     regiao = models.CharField(max_length=255)
     epoca = models.CharField(max_length=255)
+    ativo = models.BooleanField(default=True)
     #Campos de média
     n_m = models.CharField(max_length=255)
     p_m = models.CharField(max_length=255)
@@ -33,4 +34,12 @@ class Norma(models.Model):
     zn_dp = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return (self.cultura + ' - ' + self.regiao + ' - ' + self.epoca)
+        return (self.cultura + self.regiao + self.epoca)
+
+class HistoricoUsuarios(models.Model):
+    proprietario = models.CharField(max_length=255)
+    propriedade = models.CharField(max_length=255)
+    horario = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.proprietario

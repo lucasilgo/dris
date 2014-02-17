@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 from drisapp.core.forms import CalculateForm
-from drisapp.core.models import Norma
+from drisapp.core.models import Norma, HistoricoUsuarios
 
 def index(request):
     return render(request, 'index.html')
@@ -20,17 +20,15 @@ def calculate(request):
             form_dict = form.cleaned_data.copy()
             aux = calculate_dris(form.cleaned_data)
             form_dict['chart'] = aux
-            print form_dict
+            HistoricoUsuarios(proprietario=form_dict['proprietario'], propriedade=form_dict['propriedade']).save()
             return render(request, 'relatorio.html', form_dict)
         else:
             return render(request, 'calculate.html', {'form': form})
     return render(request, 'calculate.html', {'form': CalculateForm()})
 
-def relatorio(request):
-    return render(request, 'relatorio.html')
-
 def calculate_dris(form):
-    media, dp, dados, rel = [], [], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    media, dp, dados, rel = [], [], [], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    aux = 0
     # Monta a lista de médias da norma
     media.append(converte_string_lista(form['cultura'].n_m))
     media.append(converte_string_lista(form['cultura'].p_m))
@@ -73,10 +71,9 @@ def calculate_dris(form):
             rel[i] += (dados[i]/dados[j] - media[i][j]) * (10/dp[i][j])
         rel[i] = str(round(rel[i] / 21, 2))
     # Cálculo IBN
-    for i in range(11):
-        rel[11] += i
-    rel[11] = str(round(rel[11] / 11, 2))
-    print rel
+    for i in rel:
+        aux += float(i)
+    rel.append(str(round(aux / 11, 2)))
     return rel
 
 def converte_string_lista(string):

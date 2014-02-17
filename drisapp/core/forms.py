@@ -19,6 +19,6 @@ class CalculateForm(forms.Form):
     proprietario = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Quem é o dono da propriedade?'}))
     propriedade = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Qual o nome da propriedade?'}))
     lavoura = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Qual o tipo da lavoura?'}))
-    cultura = forms.ModelChoiceField(queryset=Norma.objects.all(), empty_label='-', widget=forms.Select(attrs={'class': 'form-control'}))
+    cultura = forms.ModelChoiceField(queryset=Norma.objects.filter(ativo=True), empty_label='-', widget=forms.Select(attrs={'class': 'form-control'}))
     amostra = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Quem o tipo da amostra?'}))
     data_coleta = forms.DateField(label=('Data da Coleta'), widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Quando a coleta foi feita? Ex: 12/02/2014'}))
