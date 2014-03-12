@@ -34,7 +34,7 @@ class Norma(models.Model):
     zn_dp = models.CharField(max_length=255)
 
     def __unicode__(self):
-        return (self.cultura + self.regiao + self.epoca)
+        return (self.cultura + " " + self.regiao + " " + self.epoca)            
 
 class HistoricoUsuarios(models.Model):
     proprietario = models.CharField(max_length=255)
@@ -43,3 +43,6 @@ class HistoricoUsuarios(models.Model):
 
     def __unicode__(self):
         return self.proprietario
+
+    class Meta:
+        verbose_name = "Histórico de Usuários"
