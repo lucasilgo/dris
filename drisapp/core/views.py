@@ -69,6 +69,7 @@ def calculate_dris(form):
     for i in range(11):
         for j in range(11):
             rel[i] += (dados[i]/dados[j] - media[i][j]) * (10/dp[i][j])
+            rel[j] -= (dados[i]/dados[j] - media[i][j]) * (10/dp[i][j])
         rel[i] = str(round(rel[i] / 21, 2))
     # Cálculo IBN
     for i in rel:
